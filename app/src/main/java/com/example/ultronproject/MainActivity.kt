@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.*
+import com.example.ultronproject.ui.screens.LazyListScreen
 import com.example.ultronproject.ui.screens.PersonalScreen
 import com.example.ultronproject.ui.theme.UltronProjectTheme
 import kotlinx.coroutines.launch
@@ -69,6 +70,11 @@ fun AppWithDrawer() {
                     scope.launch { drawerState.close() }
                     navController.navigate("clicker")
                 }
+
+                DrawerItem("Lazy List") {
+                    scope.launch { drawerState.close() }
+                    navController.navigate("lazylist")
+                }
             }
         }
     ) {
@@ -105,6 +111,9 @@ fun AppWithDrawer() {
                 }
                 composable("personal") {
                     PersonalScreen()
+                }
+                composable("lazylist") {
+                    LazyListScreen()
                 }
             }
         }
